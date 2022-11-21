@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./partials/head.ejs') %>
+</head>
+
+<body>
+    <div class="body-overlay">
+        <!-- ============ HEADER ============ -->
+        <%- include ('./partials/header.ejs') %>
+        <!-- ============ MAIN ============ -->
+        <main id="flex-container">
+            <form action="/recipe" method="post" id="createForm">
+                <input type="text" name="name" placeholder="recipe Name" required />
+                <input type="text" name="description" placeholder="Description" />
+                <input type="text" name="image"
+                    value="https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/Unique_bubble._CB608191422_.png" />
+                <input type="number" name="price" placeholder="Price" />
+                <input type="numer" name="qty" placeholder="Quantity" />
+                <button type="submit">Create Recipe</button>
+            </form>
+        </main>
+    </div>    
+</body>
+
+</html>

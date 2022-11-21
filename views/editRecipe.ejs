@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./partials/head.ejs') %>
+        <link rel="stylesheet" href="/styles/index.css" />
+</head>
+
+<body>
+    <div class="body-overlay">
+        <%- include ('./partials/header.ejs') %>
+            <main id="edit-form">
+                <form action="/recipe/<%= recipe._id %>?_method=put" method="post">
+                    <p>Name: <input type="text" name="name" value="<%=recipe.name%>" /></p>
+                    <p>Description: <input type="text" name="description" value="<%=recipe.description%>" /></p>
+                    <p>Price: <input type="number" name="price" value="<%=recipe.price%>"></p>
+                    <p>Quantity: <input type="number" name="qty" value="<%=recipe.qty%>"></p>
+                    <button type="submit">Save</button>
+                </form>
+               
+            </main>
+    </div>
+</body>
+
+</html>

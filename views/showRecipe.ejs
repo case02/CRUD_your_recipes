@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <%- include ('./partials/head.ejs') %>
+</head>
+
+<body>
+    <div class="body-overlay">
+        <!-- ============ HEADER ============ -->
+        <%- include ('./partials/header.ejs') %>
+        <!-- ============ MAIN ============ -->
+        <main class="show-main">
+            <h1><%= recipe.name %></h1>
+            <div id="show-item">
+                <img src="<%= recipe.image %>" width="400" />
+                <p><%= recipe.description %></p>
+                <p>Quantity: <%= recipe.qty %></p>
+                <h4>$<%= recipe.price %></h4>
+                <a href='/recipe/<%=recipe._id%>/buy'><button>BUY</button></a>
+                <a href='/recipe/<%= recipe._id %>/edit'><button>EDIT</button></a>
+                <form action="/recipe/<%= recipe._id %>?_method=DELETE" method="POST">
+                    <button class="delete" type="submit">DELETE</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

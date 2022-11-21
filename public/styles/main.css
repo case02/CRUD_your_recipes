@@ -1,0 +1,135 @@
+/* ================ */
+/*     GENERAL      */
+/* ================ */
+body {
+    background-color:#dfdfdf;
+    background-size: cover;
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', helvetica;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ================ */
+/*   CONTAINERS     */
+/* ================ */
+.body-overlay {
+    background: rgba(245, 245, 245, 0.4);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    padding: 5em;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+main,
+header {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em 3em;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    border-radius: 1em;
+    text-align: center;
+    box-shadow: 1px 1px 5px #888;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ================ */
+/*      HEADER     */
+/* ================ */
+header {
+    margin-bottom: 2em;
+}
+
+header ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+header li {
+    font-family: 'Montserrat', helvetica;
+    font-weight: 700;
+    font-size: 0.8em;
+    margin-left: 1em;
+    text-transform: uppercase;
+}
+
+header li a {
+    color: rgb(152, 130, 110);
+}
+
+header h1 {
+    color: rgb(129, 110, 124);
+}
+
+/* ================ */
+/*      INDEX       */
+/* ================ */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 2em 0;
+    font-family: 'Inconsolata', courier;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    width: 300px;
+    margin: 1em auto;
+    flex: 3;
+}
+
+li a {
+    color: rgb(129, 110, 124);
+    text-shadow: 1px 1px #eee;
+    font-size: 1.1em;
+    display: inline-block;
+    padding-bottom: 0.3em;
+}
+
+li a:after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 1px;
+    margin-top: 0.2em;
+    background: #ccc;
+    transition: 0.7s ease-in-out;
+}
+
+li a:hover:after {
+    width: 100%;
+}
+
+main h1 {
+    display: inline-block;
+    color: rgb(129, 110, 124);
+    border-bottom: 4px solid rgb(198, 190, 190);
+    padding-bottom: 0.2em;
+    width: 80%;
+    margin-bottom: 0.5em;
+}
+
+main>div {
+    width: 80%;
+    margin:auto
+}
+
+main.show-main {
+    display: block;
+}
+
+main.show-main button {
+    display: inline;
+}

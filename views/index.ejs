@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./partials/head.ejs') %>
+        <link rel="stylesheet" href="/styles/index.css" />
+</head>
+
+<body>
+    <div class="body-overlay">
+        <%- include ('./partials/header.ejs') %>
+        <main>
+            <ul>
+                <% for (let recipe of recipes) { %>
+                    <li>
+                        <%= recipe.name %>
+                        <br />
+                        <a href="/recipe/<%= recipe._id %> ">
+                            <img src="<%= recipe.image %>" width="100" />
+                        </a>
+                        <br />
+                        $<%= recipe.price %>
+                    </li>
+                <% } %>    
+            </ul>  
+        </main>
+    </div>    
+</body>
+
+</html>
