@@ -8,7 +8,7 @@ const port = 3000;
 // access models
 const db = require('./models');
 // access controllers
-const productsCtrl = require('./controllers/products');
+const recipesCtrl = require('./controllers/recipes');
 
 // +-+-+-+-+-+-+-+-+-+-+
 // |M|I|D|D|L|E|W|A|R|E|
@@ -31,19 +31,19 @@ app.get('/', (req, res) => {
 })
 // Index Route (GET/Read): We'll leave this route in the server.js since it affects both models
 app.get('/shop', (req, res) => {
-	// query products from the database
-	db.Product.find({}, (err, products) => {
+	// query recipes from the database
+	db.Recipe.find({}, (err, recipes) => {
 			// render `index.ejs` after data has been queried
 			// res.send(entries)
 			res.render('index', {
-				products: products,
+				recipes: recipes,
 				tabTitle: 'Shop | Home',
 			});
 		});
 	});
 
-// app.get('/product/:id', productsCtrl.show)
-app.use('/product', productsCtrl);
+// app.get('/recipe/:id', recipesCtrl.show)
+app.use('/recipe', recipesCtrl);
 
 
 // +-+-+-+-+-+-+-+-+

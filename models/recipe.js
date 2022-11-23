@@ -5,14 +5,17 @@ const Schema = mongoose.Schema;
 // create a recipe schema
 const recipeSchema = new Schema({
 	name: { type: String, required: true },
+	description: { type: String },
 	image: {
 		type: String,
 		default:
 			'https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/Unique_bubble._CB608191422_.png',
 	},
-	description: { type: String },
-	price: { type: Number, min: 0 },
-	qty: { type: Number, min: 0 },
+	prepTime: { type: Number, min: 0 },
+	cookTime: { type: Number, min: 0 },
+	servings: { type: String },
+	ingredients: { type: String},
+	directions: {type: String},
 });
 
 // create a recipe model using the recipeSchema
