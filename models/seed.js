@@ -2,51 +2,75 @@ const db = require('./');
 
 const initialRecipes = [
 	{
-		name: 'Game Controller',
+		name: 'CHICKEN BURRITO SKILLET',
 		image:
-			'https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/CEholiday_Gaming-bubble_sobee_320x320_V2png._CB606115101_.png',
-		description: 'a game controller...',
-		price: 25,
-		qty: 10,
+			'https://www.readyseteat.com/sites/g/files/qyyrlu501/files/uploadedImages/img_7722_05375.jpg',
+		description:
+			'Chicken, black beans, zesty tomatoes, and taco seasoning cooked together with brown rice make for an easy burrito skillet you have to serve at your Cinco de Mayo celebration! This delicious dish is also perfect for a crowd-pleasing weeknight dinner idea.',
+		prepTime: 15,
+		cookTime: 15,
+		servings: 6,
+		ingredients: [
+			'2 tablespoons canola oil',
+			'1 pound boneless skinless chicken breasts, cut into bite-size pieces',
+			'1/2 cup chopped yellow onion',
+			'2 tablespoons taco seasoning mix (from 1.25-oz pkg)',
+			'1 can (15 oz each) Rosarita® Premium Whole Black Beans, drained, rinsed',
+			'1 can (10 oz each) Ro*Tel® Original Diced Tomatoes & Green Chilies, undrained',
+			'1 cup water',
+			'1-1/4 cups instant brown rice, uncooked',
+			'1 cup shredded Cheddar and Monterey Jack cheese blend',
+			'Chopped cilantro, optional',
+		],
+		directions: {
+			stepone:
+				'Heat oil in large skillet over medium-high heat. Add chicken and cook 3 minutes, stirring occasionally. Add onion and taco seasoning; cook 2 minutes more. Stir in black beans, undrained tomatoes and water; bring to a boil.',
+
+			steptwo:
+				'Stir in rice. Cover, reduce heat and simmer 7 to 10 minutes or until rice is tender. Stir in 1/2 cup cheese. Sprinkle top with remaining cheese and cilantro, if desired.',
+		},
+		source: 'https://www.readyseteat.com/recipes-Chicken-Burrito-Skillet-7722',
 	},
 	{
-		name: 'Fitness Watch',
+		name: 'BEEF AND BROCCOLI',
 		image:
-			'https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/Fitness_Tech_Shoveler_v2._CB606115101_.png',
-		description: 'a watch...',
-		price: 25,
-		qty: 10,
-	},
-	{
-		name: 'Headphones',
-		image:
-			'https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/Audio_Shoveler._CB606137271_.png',
-		description: 'headphones...',
-		price: 25,
-		qty: 10,
-	},
-	{
-		name: 'Phone',
-		image:
-			'https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/Sustainable_bubble._CB608191422_.png',
-		price: 25,
-		qty: 10,
-	},
-	{
-		name: 'Thingy-Majig',
-		image:
-			'https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/Unique_bubble._CB608191422_.png',
-		description: 'a...not too sure',
-		price: 25,
-		qty: 10,
-	},
-	{
-		name: 'Tablet',
-		image:
-			'https://m.media-amazon.com/images/G/01/US-hq/2022/img/Consumer_Electronics_Holiday/Laptops__Tablets_bubble._CB608191422_.png',
-		description: 'a tablet...',
-		price: 25,
-		qty: 10,
+			'https://natashaskitchen.com/wp-content/uploads/2019/08/Beef-and-Broccoli-4.jpg',
+		description:
+			'Beef and Broccoli is an easy, 1-pan, 30-minute meal that is loaded with fresh broccoli, tender nutrition-packed beef, and the best stir fry sauce.',
+		prepTime: 17,
+		cookTime: 13,
+		servings: 4,
+		ingredients: [
+			'1 lb flank steak, very thinly sliced into bite-sized strips',
+			'2 Tbsp olive oil , (or vegetable oil), divided',
+			'1 lb broccoli, (cut into 6 cups of florets)',
+			'2 tsp sesame seeds, optional garnish',
+			'1 tsp fresh ginger, grated (loosely packed)',
+			'2 tsp garlic, grated (from 3 cloves',
+			'1/2 cup hot water',
+			'6 Tbsp low sodium soy sauce, (or GF Tamari)',
+			'3 Tbsp packed light brown sugar',
+			'1 1/2 Tbsp corn starch',
+			'1/4 tsp black pepper',
+			'2 Tbsp sesame oil',
+		],
+		directions: {
+			stepone:
+				"Start cooking white rice first so it's ready when the stir fry is done. Cover and freeze steak 30 minutes for easier slicing.",
+
+			steptwo:
+				'Combine all stir fry sauce ingredients in a bowl, stir well to dissolve the sugar, and set aside.',
+
+			stepthree:
+				'Place a large skillet over medium heat and add 1 Tbsp oil.  Add broccoli florets and sauté 4-5 minutes, partially covered with lid, stirring or tossing several times until broccoli is bright green and crisp-tender then remove from pan. Tip: If you prefer softer broccoli, add 2 Tbsp water before covering with the lid and it will steam cook the broccoli.',
+
+			stepfour: 
+				"Increase heat to high heat and add 1 Tbsp oil. Add beef in a single layer and sauté 2 minutes per side or just until cooked through. Quickly pull out a piece to test for doneness.",
+
+			stepfive:
+				"Add the sauce, reduce heat to medium/low and simmer 3-4 minutes. It will thicken. Add broccoli and stir to combine. Stir in 1-2 Tbsp water to thin the sauce if desired. Serve over white rice."
+		},
+		source: 'https://www.readyseteat.com/recipes-Chicken-Burrito-Skillet-7722',
 	},
 ];
 
@@ -55,13 +79,13 @@ db.Recipe.deleteMany({}, (err, recipes) => {
 	if (err) {
 		console.log('Error occured in remove', err);
 	} else {
-		console.log('Removed all products');
+		console.log('Removed all recipe');
 
-		db.Recipe.insertMany(initialRecipes, (err, products) => {
+		db.Recipe.insertMany(initialRecipes, (err, recipe) => {
 			if (err) {
 				console.log('Error occured in insertMany', err);
 			} else {
-				console.log('Created', products.length, 'products');
+				console.log('Created', recipe.length, 'recipe');
 				process.exit()
 			}
 		});

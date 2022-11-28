@@ -1,8 +1,9 @@
 // dependencies
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // connect to MongoDB via mongoose
-const connectionString = 'mongodb://localhost:27017/shop';
+const connectionString = process.env.MONGODBURI;
 mongoose.connect(connectionString, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,

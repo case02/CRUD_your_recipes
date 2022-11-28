@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/case02/CRUD_your_recipes#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "method-override": "^3.0.0",

@@ -20,13 +20,6 @@ router.get('/:id', (req, res) => {
 	});
 });
 
-// create route
-router.post('/', (req, res) => {
-	db.Recipe.create(req.body, (err, recipe) => {
-		res.redirect('/');
-	});
-});
-
 
 //create recipe route
 router.post('/', (req, res) => {
@@ -54,7 +47,9 @@ router.put('/:id', (req, res) => {
 
 // edit ejs
 router.get('/:id/edit', (req, res) => {
-    db.Recipe.findById(req.params.id, (err, product) => {
+    db.Recipe.findById(req.params.id, (err, recipe) => {
+
+        console.log(recipe)
         res.render("editRecipe", {
             recipe: recipe,
             tabTitle: 'Edit'
@@ -62,20 +57,20 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
-// buy route
-router.put('/:id/buy', (req, res) => {
-    db.REcipe.findByIdAndUpdate(req.params.id, {qty: req.body.qty - 1}, { new: true }, (err, recipe) => {
-        // res.send(req.body)
-        res.redirect('/recipe/' + recipe._id)
-    })
-})
-router.get('/:id/buy', (req, res) => {
-    db.Recipe.findById(req.params.id, (err, recipe) => {
-        res.render("yourRecipe", {
-            recipe: recipe,
-            tabTitle: "Buy"
-        })
-    })
-})
+// // buy route
+// router.put('/:id/buy', (req, res) => {
+//     db.REcipe.findByIdAndUpdate(req.params.id, {qty: req.body.qty - 1}, { new: true }, (err, recipe) => {
+//         // res.send(req.body)
+//         res.redirect('/recipe/' + recipe._id)
+//     })
+// })
+// router.get('/:id/buy', (req, res) => {
+//     db.Recipe.findById(req.params.id, (err, recipe) => {
+//         res.render("yourRecipe", {
+//             recipe: recipe,
+//             tabTitle: "Buy"
+//         })
+//     })
+// })
 
 module.exports = router;

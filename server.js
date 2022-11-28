@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 // access models
+require('dotenv').config()
 const db = require('./models');
 // access controllers
 const recipesCtrl = require('./controllers/recipes');
@@ -33,6 +34,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
 	res.redirect('/eat')
 })
+
 // Index Route (GET/Read): We'll leave this route in the server.js since it affects both models
 app.get('/eat', (req, res) => {
 	// query recipes from the database
