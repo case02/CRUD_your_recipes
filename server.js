@@ -4,7 +4,7 @@
 const methodOverride = require('method-override');
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 // access models
 require('dotenv').config()
 const db = require('./models');
