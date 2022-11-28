@@ -9,6 +9,7 @@ const port = 3000;
 const db = require('./models');
 // access controllers
 const recipesCtrl = require('./controllers/recipes');
+const usersCtrl = require('./controllers/users.js');
 
 // +-+-+-+-+-+-+-+-+-+-+
 // |M|I|D|D|L|E|W|A|R|E|
@@ -21,29 +22,34 @@ app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 // body parser: used for POST/PUT/PATCH routes: this will take incoming strings from the body that are url encoded and parse them into an object that can be accessed in the request parameter as a property called body (req.body).
 app.use(express.urlencoded({ extended: true }));
+// `express.json` parses application/json request data and
+//  adds it to the request object as request.body
+app.use(express.json());
 
 // +-+-+-+-+-+-+
 // |R|O|U|T|E|S|
 // +-+-+-+-+-+-+
 // GET/Read Route: Redirects root route to `/pub` route
 app.get('/', (req, res) => {
-	res.redirect('/shop')
+	res.redirect('/eat')
 })
 // Index Route (GET/Read): We'll leave this route in the server.js since it affects both models
-app.get('/shop', (req, res) => {
+app.get('/eat', (req, res) => {
 	// query recipes from the database
 	db.Recipe.find({}, (err, recipes) => {
 			// render `index.ejs` after data has been queried
 			// res.send(entries)
 			res.render('index', {
 				recipes: recipes,
-				tabTitle: 'Shop | Home',
+				tabTitle: 'Home',
 			});
 		});
 	});
 
 // app.get('/recipe/:id', recipesCtrl.show)
 app.use('/recipe', recipesCtrl);
+// User routes
+app.use('/users', usersCtrl);
 
 
 // +-+-+-+-+-+-+-+-+

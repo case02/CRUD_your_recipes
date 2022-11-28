@@ -2,19 +2,19 @@ const db = require('../models');
 const express = require('express');
 const router = express.Router();
 
-// new product
+// new Recipe
 router.get('/new', (req, res) => {
-	res.render('newProduct', {
-		tabTitle: 'New Product',
+	res.render('newRecipe', {
+		tabTitle: 'New Recipe',
 	});
 });
 
-//show product
+//show recipe
 router.get('/:id', (req, res) => {
-	db.Product.findById(req.params.id, (err, product) => {
+	db.Recipe.findById(req.params.id, (err, recipe) => {
         // res.send(req.params)
-		res.render('showProduct', {
-			product: product,
+		res.render('showRecipe', {
+			recipe: recipe,
 			tabTitle: 'Item',
 		});
 	});
@@ -22,15 +22,15 @@ router.get('/:id', (req, res) => {
 
 // create route
 router.post('/', (req, res) => {
-	db.Product.create(req.body, (err, product) => {
+	db.Recipe.create(req.body, (err, recipe) => {
 		res.redirect('/');
 	});
 });
 
 
-//create product route
+//create recipe route
 router.post('/', (req, res) => {
-	db.Product.create(req.body, (err, product) => {
+	db.Recipe.create(req.body, (err, recipe) => {
 		res.redirect('/');
 	});
 });
@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
 
 // Delete route
 router.delete('/:id', (req, res) => {
-    db.Product.findByIdAndDelete(req.params.id, (err, product) => {
+    db.Recipe.findByIdAndDelete(req.params.id, (err, recipe) => {
         res.redirect('/')
     })
 })
@@ -46,17 +46,17 @@ router.delete('/:id', (req, res) => {
 
 // update route
 router.put('/:id', (req, res) => {
-    db.Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, product) => {
-        res.redirect('/product/' + product._id)
-        // res.send(product)
+    db.Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, recipe) => {
+        res.redirect('/recipe/' + recipe._id)
+        // res.send(recipe)
     })
 })
 
 // edit ejs
 router.get('/:id/edit', (req, res) => {
-    db.Product.findById(req.params.id, (err, product) => {
-        res.render("editProduct", {
-            product: product,
+    db.Recipe.findById(req.params.id, (err, product) => {
+        res.render("editRecipe", {
+            recipe: recipe,
             tabTitle: 'Edit'
         })
     })
@@ -64,15 +64,15 @@ router.get('/:id/edit', (req, res) => {
 
 // buy route
 router.put('/:id/buy', (req, res) => {
-    db.Product.findByIdAndUpdate(req.params.id, {qty: req.body.qty - 1}, { new: true }, (err, product) => {
+    db.REcipe.findByIdAndUpdate(req.params.id, {qty: req.body.qty - 1}, { new: true }, (err, recipe) => {
         // res.send(req.body)
-        res.redirect('/product/' + product._id)
+        res.redirect('/recipe/' + recipe._id)
     })
 })
 router.get('/:id/buy', (req, res) => {
-    db.Product.findById(req.params.id, (err, product) => {
-        res.render("buyProduct", {
-            product: product,
+    db.Recipe.findById(req.params.id, (err, recipe) => {
+        res.render("yourRecipe", {
+            recipe: recipe,
             tabTitle: "Buy"
         })
     })

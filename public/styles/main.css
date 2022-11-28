@@ -133,3 +133,11 @@ main.show-main {
 main.show-main button {
     display: inline;
 }
+
+/* ================ */
+/*      footer      */
+/* ================ */
+
+footer{
+    display: block;
+}

@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// create a recipe schema
+// create a user schema
 const userSchema = new Schema({
 	name: { type: String, required: true },
 	email: { type: String },

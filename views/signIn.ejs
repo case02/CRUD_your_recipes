@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./partials/head.ejs') %>
+        <link rel="stylesheet" href="/styles/index.css" />
+</head>
+
+<body>
+    <div class="body-overlay">
+        <%- include ('./partials/header.ejs') %>
+            <main>
+                <form action="/recipe" method="post" id="createForm">
+                    <input type="text" name="username" placeholder="create username" required />
+                    <button type="submit">Create User Profile</button>
+                </form>
+            </main>
+    </div>
+</body>
+
+</html>

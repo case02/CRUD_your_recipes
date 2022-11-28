@@ -23,4 +23,5 @@ mongoose.connection.on('error', (error) => {
 });
 
 // access models
-module.exports.Product = require('./product.js');
+module.exports.Recipe = require('./recipe.js');
+module.exports.User = require('./user.js');
