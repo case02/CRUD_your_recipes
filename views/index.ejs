@@ -12,20 +12,24 @@
         <main>
             <ul>
                 <% for (let recipe of recipes) { %>
-                    <li>
-                        <%= recipe.name %>
-                        <br />
-                        <a href="/recipe/<%= recipe._id %> ">
-                            <img src="<%= recipe.image %>" width="100" />
-                        </a>
-                        <br />
-                        $<%= recipe.price %>
+                    <li class="list-items">
+                        <div class="list-container">
+                            <div class="list-item list-left">
+                            <a href="/recipe/<%= recipe._id %> ">
+                                <img src="<%= recipe.image %>"/> 
+                            </a> 
+                            </div>
+                            <div class="list-item list-right">
+                                <h2><%= recipe.name %><h2>
+                                <p><%= recipe.description %></p>  
+                            </div>
+                        </div>
+                        
                     </li>
                 <% } %>    
             </ul>  
         </main>
     </div> 
-    <%- include ('./partials/footer.ejs') %>
 </body>
 
 </html>

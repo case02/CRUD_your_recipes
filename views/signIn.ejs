@@ -10,8 +10,8 @@
     <div class="body-overlay">
         <%- include ('./partials/header.ejs') %>
             <main>
-                <form action="/recipe" method="post" id="createForm">
-                    <input type="text" name="username" placeholder="create username" required />
+                <form action="/user" method="POST" id="createForm">
+                    <input type="text" name="name" placeholder="create username" required />
                     <button type="submit">Create User Profile</button>
                 </form>
             </main>

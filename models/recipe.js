@@ -15,7 +15,7 @@ const recipeSchema = new Schema({
 	cookTime: { type: Number, min: 0 },
 	servings: { type: Number, min: 0 },
 	ingredients: { type: Array},
-	directions: {type: Object},
+	directions: {type: Array},
 });
 
 // create a recipe model using the recipeSchema

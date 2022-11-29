@@ -4,11 +4,13 @@
 const methodOverride = require('method-override');
 const express = require('express');
 const app = express();
+require('dotenv').config();
 const port = process.env.PORT;
+const mongodbURI = process.env.MONGODBURI;
 // access models
-require('dotenv').config()
 const db = require('./models');
 // access controllers
+
 const recipesCtrl = require('./controllers/recipes');
 const usersCtrl = require('./controllers/users.js');
 
@@ -51,7 +53,7 @@ app.get('/eat', (req, res) => {
 // app.get('/recipe/:id', recipesCtrl.show)
 app.use('/recipe', recipesCtrl);
 // User routes
-app.use('/users', usersCtrl);
+app.use('/user', usersCtrl);
 
 
 // +-+-+-+-+-+-+-+-+

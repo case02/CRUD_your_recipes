@@ -5,7 +5,7 @@ const router = express.Router();
 // new Recipe
 router.get('/new', (req, res) => {
 	res.render('newRecipe', {
-		tabTitle: 'New Recipe',
+		tabTitle: 'New Recipe'
 	});
 });
 
@@ -52,25 +52,10 @@ router.get('/:id/edit', (req, res) => {
         console.log(recipe)
         res.render("editRecipe", {
             recipe: recipe,
-            tabTitle: 'Edit'
+            tabTitle: 'Edit',
         })
     })
 })
 
-// // buy route
-// router.put('/:id/buy', (req, res) => {
-//     db.REcipe.findByIdAndUpdate(req.params.id, {qty: req.body.qty - 1}, { new: true }, (err, recipe) => {
-//         // res.send(req.body)
-//         res.redirect('/recipe/' + recipe._id)
-//     })
-// })
-// router.get('/:id/buy', (req, res) => {
-//     db.Recipe.findById(req.params.id, (err, recipe) => {
-//         res.render("yourRecipe", {
-//             recipe: recipe,
-//             tabTitle: "Buy"
-//         })
-//     })
-// })
 
 module.exports = router;
