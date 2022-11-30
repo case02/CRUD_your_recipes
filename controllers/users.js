@@ -3,19 +3,39 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-// new user
-router.get('/new', (req, res) => {
-	res.render('signIn', {
-		tabTitle: 'Create User',
+// show user 
+router.get('/users', (req, res) => {
+	// query recipes from the database
+	db.User.find({}, (err, user) => {
+		// render `index.ejs` after data has been queried
+		// res.send(entries)
+		res.render('showUser', {
+			user: user,
+			tabTitle: 'User',
+		});
 	});
 });
 
 //create user route
 router.post('/', (req, res) => {
 	db.User.create(req.body, (err, user) => {
-		res.redirect('/');
+		res.redirect('/user/users');
 	});
 });
+
+// new user
+router.get('/new', (req, res) => {
+	db.User.find({}, (err, user) => {
+		res.render('signIn', {
+			tabTitle: 'Create User',
+			user: user,
+		});
+	});
+});
+
+
+
+
 
 // // Index Route: GET localhost:3000/users/
 // router.get('/', (req, res) => {

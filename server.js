@@ -41,14 +41,14 @@ app.get('/', (req, res) => {
 app.get('/eat', (req, res) => {
 	// query recipes from the database
 	db.Recipe.find({}, (err, recipes) => {
-			// render `index.ejs` after data has been queried
-			// res.send(entries)
-			res.render('index', {
-				recipes: recipes,
-				tabTitle: 'Home',
-			});
+		// render `index.ejs` after data has been queried
+		// res.send(entries)
+		res.render('index', {
+			recipes: recipes,
+			tabTitle: 'Home',
 		});
 	});
+});
 
 // app.get('/recipe/:id', recipesCtrl.show)
 app.use('/recipe', recipesCtrl);

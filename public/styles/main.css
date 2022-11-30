@@ -14,6 +14,12 @@ a {
     text-decoration: none;
 }
 
+button {
+    border-radius: 10;
+    width: 8rem;
+}
+
+
 /* ================ */
 /*   CONTAINERS     */
 /* ================ */
@@ -41,6 +47,15 @@ header {
     box-shadow: 1px 1px 5px #888;
     display: flex;
     justify-content: space-between;
+}
+
+#createForm {
+   display: flex;
+   flex-direction: column;
+}
+
+#createForm input {
+    margin-bottom: 5px;
 }
 
 /* ================ */
@@ -153,12 +168,4 @@ main.show-main button {
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-/* ================ */
-/*      footer      */
-/* ================ */
-
-footer{
-    display: block;
 }
