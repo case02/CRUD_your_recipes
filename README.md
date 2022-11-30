@@ -12,9 +12,9 @@ A full CRUD application
 - languages: css, html, js
 
 ## Seed Data Original Sources
-[Natashas Kitchen](https://natashaskitchen.com/beef-and-broccoli/)
-[Ready Set Eat](https://www.readyseteat.com/recipes-Chicken-Burrito-Skillet-7722)
-[Food Network](https://www.foodnetwork.com/recipes/rachael-ray/barbecued-chinese-chicken-lettuce-wraps-recipe-1915308)
+- [Natashas Kitchen](https://natashaskitchen.com/beef-and-broccoli/)
+- [Ready Set Eat](https://www.readyseteat.com/recipes-Chicken-Burrito-Skillet-7722)
+- [Food Network](https://www.foodnetwork.com/recipes/rachael-ray/barbecued-chinese-chicken-lettuce-wraps-recipe-1915308)
 
 ## Installation instructions
 - no installations necessary
