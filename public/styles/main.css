@@ -84,7 +84,7 @@ header li a {
 }
 
 header h1 {
-    color: rgb(129, 110, 124);
+    color: rgb(45, 41, 44);
     font-family: 'Rubik Distressed', cursive;
     font-size: xx-large;
 }
@@ -118,7 +118,7 @@ li {
 }
 
 li a {
-    color: rgb(129, 110, 124);
+    color: rgb(36, 32, 35);
     text-shadow: 1px 1px #eee;
     font-size: 1.1em;
     padding-bottom: 0.3em;
@@ -144,7 +144,7 @@ li a img{
 
 main h1 {
     display: inline-block;
-    color: rgb(129, 110, 124);
+    color: rgb(40, 37, 39);
     border-bottom: 4px solid rgb(198, 190, 190);
     padding-bottom: 0.2em;
     width: 80%;

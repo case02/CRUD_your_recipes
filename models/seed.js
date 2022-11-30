@@ -1,3 +1,4 @@
+////// Only required when seed route doesn't exist
 const db = require('./');
 
 const initialRecipes = [

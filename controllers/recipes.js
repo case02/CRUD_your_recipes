@@ -2,9 +2,40 @@ const db = require('../models');
 const express = require('express');
 const router = express.Router();
 
-// SEED Route: When accessed this route will execute the function below and seed our database.
+// SEED Route: When accessed this route will execute the function below and seed database. First it will delete any reoccuring data and then repopulate.
 router.get('/seed', async (req, res) => {
     const initialRecipes = [
+			{
+				name: 'Chinese Chicken Lettuce Wraps',
+				image: 'https://i.imgur.com/46FMP2p.jpg',
+				description:
+					'Chicken, black beans, zesty tomatoes, and taco seasoning cooked together with brown rice make for an easy burrito skillet you have to serve at your Cinco de Mayo celebration! This delicious dish is also perfect for a crowd-pleasing weeknight dinner idea.',
+				prepTime: 15,
+				cookTime: 15,
+				servings: 6,
+				ingredients: [
+					'2 cups, 4 handfuls, fresh shiitake mushrooms',
+					'1 1/3 to 1 1/2 pounds thin cut chicken breast or chicken tenders',
+					'2 tablespoons light colored oil, such as vegetable oil or peanut oil',
+					'Coarse salt and coarse black pepper',
+					'3 cloves garlic, chopped',
+					'1 inch ginger root, finely chopped or grated, optional',
+					'1 orange, zested',
+					'1/2 red bell pepper, diced small',
+					'1 small tin, 6 to 8 ounces, sliced water chestnuts, drained and chopped',
+					'3 tablespoons hoisin, Chinese barbecue sauce, available on Asian foods aisle of market',
+					'1/2 large head iceberg lettuce, core removed, head quartered',
+				],
+				directions: [
+					'Remove tough stems from mushrooms and brush with damp towel to clean, Slice mushrooms. Chop chicken into small pieces.',
+
+					'Preheat a large skillet or wok to high.',
+
+					'Add oil to hot pan. Add chicken to the pan and sear meat by stir frying a minute or 2. Add mushrooms and cook another minute or two. Add salt and pepper to season, then garlic and ginger. Cook a minute more. Grate zest into pan, add bell pepper bits, chopped water chestnuts and scallions. Cook another minute, continuing to stir fry mixture. Add hoisin Chinese barbecue sauce and toss to coat the mixture evenly. Transfer the hot chopped barbecued chicken to serving platter and pile the quartered wedges of crisp iceberg lettuce along side. Add wedged oranges to platter to garnish. To eat, pile spoonfuls into lettuce leaves, wrapping lettuce around fillings and squeeze an orange wedge over.',
+				],
+				source:
+					'https://www.foodnetwork.com/recipes/rachael-ray/barbecued-chinese-chicken-lettuce-wraps-recipe-1915308',
+			},
 			{
 				name: 'CHICKEN BURRITO SKILLET',
 				image: 'https://i.imgur.com/BR9ztTc.jpg',
@@ -70,15 +101,22 @@ router.get('/seed', async (req, res) => {
 			},
 		];
 
-    try {
-        const seedItems = await db.Recipe.create(initialRecipes)
-        res.redirect('/');
-    } catch (err) {
-        res.send(err.message)
-    }
+    db.Recipe.deleteMany({}, (err, recipes) => {
+			if (err) {
+				res.send(ERROR);
+			} else {
+				db.Recipe.create(initialRecipes, (err, recipe) => {
+					if (err) {
+						res.send(ERROR)
+					} else {
+						res.redirect('/');
+					}
+				});
+			}
+		});
 })
 
-// new Recipe
+// new Recipe ejs
 router.get('/new', (req, res) => {
 	res.render('newRecipe', {
 		tabTitle: 'New Recipe'

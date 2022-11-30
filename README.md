@@ -8,9 +8,13 @@ A full CRUD application
 
 ## List of the Technologies used
 - visual studio code text editor
-- MangoDB, Mongoose, express, ejs
-- Railway, MangoAtlas
+- MangoDB, Mongoose, express, ejs, Railway, MangoAtlas
 - languages: css, html, js
+
+## Seed Data Original Sources
+[Natashas Kitchen](https://natashaskitchen.com/beef-and-broccoli/)
+[Ready Set Eat](https://www.readyseteat.com/recipes-Chicken-Burrito-Skillet-7722)
+[Food Network](https://www.foodnetwork.com/recipes/rachael-ray/barbecued-chinese-chicken-lettuce-wraps-recipe-1915308)
 
 ## Installation instructions
 - no installations necessary
@@ -21,9 +25,9 @@ A full CRUD application
 - As a chef I'm always looking to be inspired by others recipes and finding new and innovative ideas.
 
 ## Wireframes: 
-# ![](wireframe/Index_WF.png)
-# ![](wireframe/show-WF.png)
-# ![](wireframe/add%3Aedit_WF.png)
+# ![](public/assets/wireframe/Index_WF.png)
+# ![](public/assets/wireframe/show-WF.png)
+# ![](public/assets/wireframe/add%3Aedit_WF.png)
 
 ## Unsolved problems:
 - styling isn't to satisfaction
