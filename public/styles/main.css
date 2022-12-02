@@ -49,6 +49,9 @@ header {
     justify-content: space-between;
 }
 
+.user-list {
+    display: block;
+}
 
 #createForm {
    display: flex;

@@ -13,8 +13,13 @@
             <main class="show-main">
               
                 <h1>
-                    WELCOME <%= user.name %>
+                    WELCOME 
                 </h1>
+                <ul class="user-list">
+                    <% for (let user of users) { %>
+                        <li><%= user.name %></li>
+                    <% } %>
+                </ul>
             </main>
     </div>
 </body>

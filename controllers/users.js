@@ -8,10 +8,10 @@ router.get('/users', (req, res) => {
 	// query recipes from the database
 	db.User.find({}, (err, user) => {
 		// render `index.ejs` after data has been queried
-		// res.send(entries)
+		// res.send(user)
 		res.render('showUser', {
-			user: user,
-			tabTitle: 'User',
+			users: user,
+			tabTitle: 'Users',
 		});
 	});
 });

@@ -2,9 +2,12 @@
 <footer>
     <header>
         <h1><a href=<%='/' %>>favorite foods</a></h1>
-        <ul>
-            <li><a href="https://www.linkedin.com/in/caseystocker/">linkedIn</a></li>
-            <li><a href="https://github.com/case02">github</a></li>
+        <ul class="user-list">
+            <% for (let i=0; i < users.length; i++) { %>
+                <li>
+                    <%= users[i].name %>
+                </li>
+            <% } %>
         </ul>
     </header>
 </footer>
